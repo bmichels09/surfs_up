@@ -127,3 +127,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Practice files
+app.py
+climate_analysis.ipynb
