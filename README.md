@@ -14,9 +14,11 @@ The purpose of this analysis is to compare temperatures in June and December to 
 December temperatures are only a few degrees lower than June temperatures, so the number of customers shouldn't vary much throughout the year.
 
 We could check the precipitation in June and December using the following queries:
+
     session.query(Measurement.date, Measurement.prcp).filter(extract('month', Measurement.date) == 6)
-	session.query(Measurement.date, Measurement.prcp).filter(extract('month', Measurement.date) == 12)
+    session.query(Measurement.date, Measurement.prcp).filter(extract('month', Measurement.date) == 12)
 	
 We could also break down the data further by looking at the mean temperature at each station, using these queries:
+
     session.query(Measurement.station, func.avg(Measurement.tobs)).filter(extract('month', Measurement.date) == 6).group_by(Measurement.station)
-	session.query(Measurement.station, func.avg(Measurement.tobs)).filter(extract('month', Measurement.date) == 12).group_by(Measurement.station)
+    session.query(Measurement.station, func.avg(Measurement.tobs)).filter(extract('month', Measurement.date) == 12).group_by(Measurement.station)
